@@ -1,0 +1,23 @@
+[package]
+name = "nbauth"
+version = "0.1.0"
+authors = ["wangjun861205 <444055828@qq.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+diesel = { version = "*", features = ["mysql", "r2d2", "chrono"] }
+rocket = "*"
+r2d2 = "*"
+chrono = { version = "*", features = ["serde"] }
+rocket_contrib = "*"
+serde =  { version = "*", features = ["derive"] }
+dotenv = "*"
+sha2 = "*"
+rand = "*"
+uuid = { version = "0.8", features = ["v4"] }
+jwt = "0.13.0"
+hmac = "*"
+time = "*"
