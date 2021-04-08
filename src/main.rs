@@ -57,6 +57,6 @@ fn main() {
         .manage(expire_duration)
         .manage(retry_limit)
         .manage(retry_interval)
-        .mount("/", routes![handlers::sign_up, handlers::auth, handlers::verify_jwt_token])
+        .mount("/", routes![handlers::sign_up, handlers::auth, handlers::verify_jwt_token, handlers::logout])
         .launch();
 }

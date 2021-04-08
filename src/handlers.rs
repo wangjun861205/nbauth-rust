@@ -157,7 +157,7 @@ fn check_password(store: &Box<dyn Storer>, acct: &mut Account, pass: String) -> 
     Ok(())
 }
 
-#[post("/auth", format = "json", data = "<req>")]
+#[post("/login", format = "json", data = "<req>")]
 pub fn auth(
     store: State<Box<dyn Storer>>,
     req: Json<SignIn>,
@@ -206,4 +206,10 @@ pub fn verify_jwt_token(token: Json<VerifyToken>, key: State<JWTKey>) -> Result<
     } else {
         Err(Error::AuthError(Status::UnprocessableEntity))
     }
+}
+
+#[delete("/logout")]
+pub fn logout(mut cookies: Cookies) -> Result<()> {
+    cookies.remove(Cookie::named("JWT-TOKEN"));
+    Ok(())
 }
